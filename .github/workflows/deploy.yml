@@ -7,23 +7,21 @@ on:
 env:
   REGISTRY_ID: crpkar551oikpfbasphi
   CLUSTER_ID: catk4rr52oqmbkfq8gpi
+  FOLDER_ID: b1ggl5ltiejket301u08
   IMAGE_NAME: app
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    container:
-      image: yandex/yc-cli:latest
     
     steps:
       - uses: actions/checkout@v4
       
-      - name: Configure YC CLI
-        run: |
-          echo "${{ secrets.YC_SA_KEY }}" > /tmp/key.json
-          yc config profile create sa-profile
-          yc config set service-account-key /tmp/key.json
-          yc config set folder-id b1ggl5ltiejket301u08
+      - name: Setup YC CLI
+        uses: yandex-cloud/actions/setup-yc-cli@v1.0.0
+        with:
+          sa-key: ${{ secrets.YC_SA_KEY }}
+          folder-id: ${{ env.FOLDER_ID }}
 
       - name: Configure Docker
         run: yc container registry configure-docker ${{ env.REGISTRY_ID }}
