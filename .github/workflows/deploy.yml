@@ -24,7 +24,7 @@ jobs:
 
       - name: Configure YC CLI  
         run: |
-          echo "${{ secrets.YC_SA_KEY }}" > /tmp/key.json
+          echo '${{ secrets.YC_SA_KEY }}' > /tmp/key.json
           yc config profile create sa-profile
           yc config set service-account-key /tmp/key.json
           yc config set folder-id ${{ env.FOLDER_ID }}
