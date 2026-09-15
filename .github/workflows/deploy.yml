@@ -42,4 +42,4 @@ jobs:
 
       - name: Update deployment
         run: |
-          kubectl set image deployment/web-app app-container=cr.yandex/${{ env.REGISTRY_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          kubectl set image deployment/web-app app=cr.yandex/${{ env.REGISTRY_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
