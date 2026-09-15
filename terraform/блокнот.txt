@@ -1,0 +1,2 @@
+registry_id=crpkar551oikpfbasphi
+pg_host=rc1a-rcmcr95ir32nbgac.mdb.yandexcloud.net

@@ -1,0 +1,8 @@
+# Исключаем большие файлы
+*.exe
+
+# Исключаем чувствительные данные
+terraform/key.json
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/terraform.tfvars
